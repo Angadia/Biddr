@@ -1,7 +1,11 @@
 class Auction < ApplicationRecord
+<<<<<<< HEAD
   belongs_to :user
 
   has_many :bids, -> { order("created_at DESC") }, dependent: :destroy
+=======
+  has_many :bids, dependent: :destroy
+>>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
 
   before_validation :capitalize_title
   

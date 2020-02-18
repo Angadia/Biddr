@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_02_18_223615) do
+=======
+ActiveRecord::Schema.define(version: 2020_02_18_190502) do
+>>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +26,11 @@ ActiveRecord::Schema.define(version: 2020_02_18_223615) do
     t.datetime "ends_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_auctions_on_user_id"
+=======
+>>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
   end
 
   create_table "bids", force: :cascade do |t|
@@ -31,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_02_18_223615) do
     t.bigint "auction_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
     t.bigint "user_id", null: false
     t.index ["auction_id"], name: "index_bids_on_auction_id"
     t.index ["user_id"], name: "index_bids_on_user_id"
@@ -49,4 +57,10 @@ ActiveRecord::Schema.define(version: 2020_02_18_223615) do
   add_foreign_key "auctions", "users"
   add_foreign_key "bids", "auctions"
   add_foreign_key "bids", "users"
+=======
+    t.index ["auction_id"], name: "index_bids_on_auction_id"
+  end
+
+  add_foreign_key "bids", "auctions"
+>>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
 end

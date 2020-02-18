@@ -14,6 +14,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+<<<<<<< HEAD
 PASSWORD = "supersecret"
 
 Bid.destroy_all
@@ -51,25 +52,44 @@ puts Cowsay.say("Users email are #{(users.map do |user| user.email end).join(', 
 
 10.times.map do
   user = users.sample
+=======
+Bid.destroy_all
+Auction.destroy_all
+
+ActiveRecord::Base.connection.reset_pk_sequence!(:auctions)
+ActiveRecord::Base.connection.reset_pk_sequence!(:bids)
+
+10.times.map do
+>>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
   a = Auction.create(
     title: Faker::Commerce.product_name,
     description: Faker::ChuckNorris.fact,
     reserve_price: rand(51..100),
     ends_at: Faker::Date.forward(days: 7),
     created_at: Date.today,
+<<<<<<< HEAD
     updated_at: Date.today,
     user_id: user.id
+=======
+    updated_at: Date.today
+>>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
   )
 
   if a.valid?
     bid_amount = 5
     a.bids = rand(0..5).times.map do
+<<<<<<< HEAD
       user = users.sample
+=======
+>>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
       Bid.new(
         bid_amount: bid_amount+=5,
         created_at: Date.today,
         updated_at: Date.today,
+<<<<<<< HEAD
         user_id: user.id
+=======
+>>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
       )
     end
   else
