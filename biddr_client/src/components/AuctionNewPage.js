@@ -17,7 +17,6 @@ export class AuctionNewPage extends Component {
     const { currentTarget } = event;
     const fd = new FormData(currentTarget);
 
-
     const newAuction = {
       title: fd.get("title"),
       description: fd.get("description"),

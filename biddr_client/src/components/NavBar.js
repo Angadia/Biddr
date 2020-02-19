@@ -14,7 +14,7 @@ export const NavBar = ({ currentUser, onSignOut }) => {
       <NavLink exact to="/" className="item">
         Biddr
       </NavLink>
-      <div className="right menu">
+      <div className="ui secondary pointing right menu">
         <NavLink exact to="/" className="item">
           Home
         </NavLink>
