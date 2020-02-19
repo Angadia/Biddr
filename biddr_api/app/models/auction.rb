@@ -1,16 +1,7 @@
 class Auction < ApplicationRecord
-<<<<<<< HEAD
-<<<<<<< HEAD
   belongs_to :user
 
   has_many :bids, -> { order("created_at DESC") }, dependent: :destroy
-=======
-=======
-  belongs_to :user
-
->>>>>>> c4505a0... Added user authentication; Added create and destroy actions for new sessions controller; Added current action for new users controller.
-  has_many :bids, dependent: :destroy
->>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
 
   before_validation :capitalize_title
   

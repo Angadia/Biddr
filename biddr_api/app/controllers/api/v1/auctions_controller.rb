@@ -1,31 +1,14 @@
 class Api::V1::AuctionsController < ApplicationController
-<<<<<<< HEAD
-<<<<<<< HEAD
   before_action :authenticate_user!, except: [:index, :show]
   
   def create 
     auction = Auction.new auction_params
     auction.user = current_user
-=======
-  def create 
-    auction = Auction.new auction_params 
->>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
-=======
-  before_action :authenticate_user!, except: [:index, :show]
-  
-  def create 
-    auction = Auction.new auction_params
-    auction.user = current_user
->>>>>>> c4505a0... Added user authentication; Added create and destroy actions for new sessions controller; Added current action for new users controller.
     if auction.save 
       render json: { id: auction.id }
     else 
       render(
-<<<<<<< HEAD
-        json: { errors: auction.errors.full_messages }, 
-=======
-        json: { errors: auction.errors }, 
->>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
+        json: { errors: [auction.errors.full_messages.join(', ')] }, 
         status: 422 # Unprocessable Entity
       )
     end
@@ -38,15 +21,7 @@ class Api::V1::AuctionsController < ApplicationController
 
   def show 
     auction = Auction.find(params[:id])
-<<<<<<< HEAD
-<<<<<<< HEAD
     render json: auction, include: [:owner, {bids: [:bidder]} ]
-=======
-    render json: auction
->>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
-=======
-    render json: auction, include: [:owner, {bids: [:bidder]} ]
->>>>>>> c4505a0... Added user authentication; Added create and destroy actions for new sessions controller; Added current action for new users controller.
   end
 
   private
