@@ -1,7 +1,7 @@
 class Auction < ApplicationRecord
   belongs_to :user
 
-  has_many :bids, dependent: :destroy
+  has_many :bids, -> { order("created_at DESC") }, dependent: :destroy
 
   before_validation :capitalize_title
   
