@@ -1,6 +1,9 @@
 class Api::V1::AuctionsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def create 
-    auction = Auction.new auction_params 
+    auction = Auction.new auction_params
+    auction.user = current_user
     if auction.save 
       render json: { id: auction.id }
     else 
@@ -18,7 +21,7 @@ class Api::V1::AuctionsController < ApplicationController
 
   def show 
     auction = Auction.find(params[:id])
-    render json: auction
+    render json: auction, include: [:owner, {bids: [:bidder]} ]
   end
 
   private
