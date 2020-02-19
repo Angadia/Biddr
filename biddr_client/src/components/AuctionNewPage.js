@@ -31,7 +31,7 @@ export class AuctionNewPage extends Component {
       }
       else {
         console.log(data.errors);
-        this.setState({new_auction: this.new_auction, errors: data.errors, noError: null});
+        this.setState({new_auction: newAuction, errors: data.errors, noError: null});
       }
     });
 
