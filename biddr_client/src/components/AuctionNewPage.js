@@ -31,7 +31,7 @@ export class AuctionNewPage extends Component {
       }
       else {
         console.log(data.errors);
-        this.setState({new_auction: this.new_auction, errors: data.errors, noError: null});
+        this.setState({new_auction: newAuction, errors: data.errors, noError: null});
       }
     });
 
@@ -50,19 +50,19 @@ export class AuctionNewPage extends Component {
           )))}
         <div className="field">
           <label htmlFor="title">Title*</label>
-          <input type="text" name="title" id="title" required />
+          <input type="text" name="title" id="title" defaultValue={this.state.new_auction ? `${this.state.new_auction.title}` : ""} required />
         </div>
         <div className="field">
           <label htmlFor="description">Description*</label>
-          <textarea name="description" id="description" rows="3" required />
+          <textarea name="description" id="description" rows="3" defaultValue={this.state.new_auction ? `${this.state.new_auction.description}` : ""} required />
         </div>
         <div className="field">
           <label htmlFor="ends_at">Ends at*</label>
-          <input type="text" name="ends_at" id="ends_at" required />
+          <input type="text" name="ends_at" id="ends_at" defaultValue={this.state.new_auction ? `${this.state.new_auction.ends_at}` : ""} required />
         </div>
         <div className="field">
           <label htmlFor="reserve_price">Reserve Price*</label>
-          <input type="text" name="reserve_price" id="reserve_price" required />
+          <input type="text" name="reserve_price" id="reserve_price" defaultValue={this.state.new_auction ? `${this.state.new_auction.reserve_price}` : ""} required />
         </div>
         <button className="ui orange button" type="submit">
           Save

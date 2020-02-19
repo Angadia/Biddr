@@ -17,10 +17,10 @@ class Api::V1::BidsController < ApplicationController
         status: 422 # Unprocessable Entity
       )
     elsif new_bid.save 
-      render json: { id: new_bid.id, auction_id: new_bid.auction_id }
+      render json: { id: new_bid.id }
     else
       render(
-        json: { errors: new_bid.errors }, 
+        json: { errors: new_bid.errors.full_messages }, 
         status: 422 # Unprocessable Entity
       )
     end
