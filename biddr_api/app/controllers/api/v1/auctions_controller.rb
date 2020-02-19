@@ -8,7 +8,7 @@ class Api::V1::AuctionsController < ApplicationController
       render json: { id: auction.id }
     else 
       render(
-        json: { errors: [auction.errors.full_messages.join(', ')] }, 
+        json: { errors: auction.errors.full_messages }, 
         status: 422 # Unprocessable Entity
       )
     end
