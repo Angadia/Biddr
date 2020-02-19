@@ -9,6 +9,9 @@ import { WelcomePage } from "./WelcomePage";
 import { SignInPage } from "./SignInPage";
 import { AuctionShowPage } from "./AuctionShowPage";
 import { AuctionIndexPage } from "./AuctionIndexPage";
+import { AuctionNewPage } from "./AuctionNewPage";
+import { AuthRoute } from "./AuthRoute";
+
 
 class App extends Component {
   constructor(props) {
@@ -55,7 +58,18 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={WelcomePage} />
             <Route exact path="/auctions" component={AuctionIndexPage} />
-            <Route path="/auctions/:id" component={AuctionShowPage} />
+            <AuthRoute
+              isAuthenticated={!!this.state.currentUser}
+              component={AuctionNewPage}
+              path="/auctions/new"
+              exact
+            />
+            <AuthRoute
+              isAuthenticated={!!this.state.currentUser}
+              component={AuctionShowPage}
+              path="/auctions/:id"
+              exact
+            />
             <Route
               path="/sign_in"
               render={routeProps => (
