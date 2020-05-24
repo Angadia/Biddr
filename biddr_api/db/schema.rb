@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_02_18_223615) do
-=======
-ActiveRecord::Schema.define(version: 2020_02_18_190502) do
->>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
-=======
-ActiveRecord::Schema.define(version: 2020_02_18_223615) do
->>>>>>> c4505a0... Added user authentication; Added create and destroy actions for new sessions controller; Added current action for new users controller.
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,16 +22,8 @@ ActiveRecord::Schema.define(version: 2020_02_18_223615) do
     t.datetime "ends_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-<<<<<<< HEAD
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_auctions_on_user_id"
-=======
->>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
-=======
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_auctions_on_user_id"
->>>>>>> c4505a0... Added user authentication; Added create and destroy actions for new sessions controller; Added current action for new users controller.
   end
 
   create_table "bids", force: :cascade do |t|
@@ -47,8 +31,6 @@ ActiveRecord::Schema.define(version: 2020_02_18_223615) do
     t.bigint "auction_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-<<<<<<< HEAD
     t.bigint "user_id", null: false
     t.index ["auction_id"], name: "index_bids_on_auction_id"
     t.index ["user_id"], name: "index_bids_on_user_id"
@@ -67,29 +49,5 @@ ActiveRecord::Schema.define(version: 2020_02_18_223615) do
   add_foreign_key "auctions", "users"
   add_foreign_key "bids", "auctions"
   add_foreign_key "bids", "users"
-=======
-=======
-    t.bigint "user_id", null: false
->>>>>>> c4505a0... Added user authentication; Added create and destroy actions for new sessions controller; Added current action for new users controller.
-    t.index ["auction_id"], name: "index_bids_on_auction_id"
-    t.index ["user_id"], name: "index_bids_on_user_id"
-  end
 
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_admin", default: false
-  end
-
-  add_foreign_key "auctions", "users"
-  add_foreign_key "bids", "auctions"
-<<<<<<< HEAD
->>>>>>> ba93988... Added create, index, show actions for auctions controller; Added create action for bids controller.
-=======
-  add_foreign_key "bids", "users"
->>>>>>> c4505a0... Added user authentication; Added create and destroy actions for new sessions controller; Added current action for new users controller.
 end
